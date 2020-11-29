@@ -27,9 +27,10 @@ io.on('connection', function(socket) {
     console.log(`socket.io connected: ${socket.id}`);
 
     // save socket.io socket in the session
-    console.log("session at socket.io connection:\n", socket.request.session);
     socket.request.session.socketio = socket.id;
     socket.request.session.save();
+
+    console.log("session at socket.io connection:\n", socket.request.session);
 });
 
 // any arbitrary express route definition
